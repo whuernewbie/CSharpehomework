@@ -1,0 +1,10 @@
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1.2.csprojAssemblyReference.cache
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1._2.Form1.resources
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1._2.Properties.Resources.resources
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1.2.csproj.GenerateResource.cache
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1.2.csproj.CoreCompileInputs.cache
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\bin\Debug\homework1.2.exe.config
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\bin\Debug\homework1.2.exe
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\bin\Debug\homework1.2.pdb
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1.2.exe
+C:\Users\10048\Source\Repos\homework1.2\homework1.2\obj\Debug\homework1.2.pdb
