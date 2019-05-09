@@ -16,12 +16,11 @@ namespace order
     {
         Form1 Form1;
         public  OrderDetail orderDetail = new OrderDetail();
-        Order order;
-        int id;
-        int num;
-        double price;
-        double total;
-        string name;
+        Order order=new Order();
+        private uint id;
+        private uint num;
+        private float price;
+        private string name;
 
 
         public Form3()
@@ -49,28 +48,25 @@ namespace order
 
         private void button1_Click(object sender, EventArgs e)
         {
-            orderDetail.Goods.Id =(uint) id;
-            orderDetail.Goods.Name = name;
-            orderDetail.Goods.Price = (float)price;
-
-            orderDetail.Quantity = (uint)num;
+            Goods goods = new Goods((uint)id, name, (float)price);
+            orderDetail = new OrderDetail(goods, (uint)num);
             Form1.get_orderDetail(orderDetail, order.Id);
             this.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            int.TryParse(textBox2.Text, out int num);
+            uint.TryParse(textBox2.Text, out  this.num);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            int.TryParse(textBox3.Text, out int id);
+            uint.TryParse(textBox3.Text, out this.id);
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            double.TryParse(textBox4.Text, out double price);
+            float.TryParse(textBox4.Text, out this.price);
         }
     }
 }

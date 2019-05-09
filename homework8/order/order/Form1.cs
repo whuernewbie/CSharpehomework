@@ -20,6 +20,7 @@ namespace order
         public Form1()
         {
             InitializeComponent();
+            init();
             //orderBindingSource.DataSource = orderService.QueryAll();
         }
 
@@ -38,11 +39,41 @@ namespace order
             Order order = orderService.GetById(id);
             order.Details.Add(orderDetail);
             orderService.Update(order);
+            orderBS.ResetBindings(false);
+            orderDetailBindingSource.ResetBindings(false);
         }
 
         public void init()//初始化
         {
+            Customer customer1 = new Customer(1, "long");
+            Customer customer2 = new Customer(2, "zheng");
+
+            Goods apple = new Goods(3, "apple", 6f);
+            Goods egg = new Goods(2, "egg", 6f);
+            Goods milk = new Goods(1, "milk", 69.9f);
+
+            OrderDetail orderDetails1 = new OrderDetail(apple, 8);
+            OrderDetail orderDetails2 = new OrderDetail(egg, 2);
+            OrderDetail orderDetails3 = new OrderDetail(milk, 1);
+
+            Order order1 = new Order(1, customer1);
+            Order order2 = new Order(2, customer2);
+            Order order3 = new Order(3, customer2);
+
+            order1.AddDetails(orderDetails1);
+            order1.AddDetails(orderDetails2);
+            order1.AddDetails(orderDetails3);
+            order2.AddDetails(orderDetails2);
+            order2.AddDetails(orderDetails3);
+            order3.AddDetails(orderDetails3);
+
+            orderService = new OrderService();
+            orderService.AddOrder(order1);
+            orderService.AddOrder(order2);
+            orderService.AddOrder(order3);
             orderBS.DataSource = orderService.QueryAll();
+         
+            
            // textBox1.DataBindings.Add("Text", this, "ky");
         }
 
@@ -54,6 +85,8 @@ namespace order
                 form.ShowDialog(this);
             }
             orderBS.DataSource = orderService.QueryAll();
+            orderBS.ResetBindings(false);
+            orderDetailBindingSource.ResetBindings(false);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,7 +97,9 @@ namespace order
                 orderService.RemoveOrder(order.Id);
                 QueryAll();
             }
-            
+            orderBS.ResetBindings(false);
+           // orderDetailBindingSource.ResetBindings(false);
+
 
         }
 
@@ -106,7 +141,7 @@ namespace order
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.DataBindings.Add("Text", this, "ky");
-            dataGridView2.DataSource = orderBS.Current;
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,6 +158,7 @@ namespace order
                 orderService.RemoveGoods(order.Id, (int)orderDetail.Goods.Id);
                 QueryAll();
             }
+            orderDetailBindingSource.ResetBindings(false);
         }
 
         private void changeo_Click(object sender, EventArgs e)
@@ -132,6 +168,7 @@ namespace order
                 form.ShowDialog(this);
             }
             orderBS.DataSource = orderService.QueryAll();
+           // orderDetailBindingSource.ResetBindings(false);
         }
     }
 }
